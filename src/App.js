@@ -20,7 +20,7 @@ const App = () => {
     content: "Let time be your only competitor.",
     author: "Ahmed Saber"
   };
-  const [quote, setQuote] = useState(quoteData);
+  const [Quote, setQuote] = useState(quoteData);
 
   const generateQuote = () => {
     fetch(url)
@@ -33,7 +33,7 @@ const App = () => {
 
   const copy = () => {
     navigator.clipboard.writeText(
-      quote.author + " once said: " + quote.content
+      Quote.author + " once said: " + Quote.content
     );
     // alert('copied')
     // instead of alert built in browser we will customize it
@@ -47,27 +47,26 @@ const App = () => {
     <>
       <h1>Quote Generator React App</h1>
       <div className="container">
-        <p>{quote.content}</p>
-        <span>{quote.author}</span>
+        <p>{Quote.content}</p>
+        <span>{Quote.author}</span>
         <div className="btns">
           <button onClick={copy} className="btn">
             Copy
           </button>
-          <button>share</button>
           <button onClick={generateQuote}>Generate Another Quote</button>
         </div>
       </div>
       <div className="shareContainer">
-        <FacebookShareButton url="https://api.quotable.io/random" quote="ahmed">
+        <FacebookShareButton url="https://timely-pie-f3118a.netlify.app/" quote={Quote.content + "" + Quote.author}>
           <FacebookIcon  size={40} round={true} style={{ backgroundColor: 'transparent',  }} />
         </FacebookShareButton>
-        <EmailShareButton  url="https://api.quotable.io/random" quote="ahmed">
+        <EmailShareButton  url="https://timely-pie-f3118a.netlify.app/" quote={Quote.content + "" + Quote.author}>
           <EmailIcon  size={40} round={true} style={{ backgroundColor: 'transparent',  }} />
         </EmailShareButton>
-        <TwitterShareButton  url="https://api.quotable.io/random" quote="ahmed">
+        <TwitterShareButton  url="https://timely-pie-f3118a.netlify.app/"quote={Quote.content + "" + Quote.author}>
           <TwitterIcon  size={40} round={true} style={{ backgroundColor: 'transparent',  }} />
         </TwitterShareButton>
-        <WhatsappShareButton  url="https://api.quotable.io/random" quote="ahmed">
+        <WhatsappShareButton  url="https://timely-pie-f3118a.netlify.app/"quote={Quote.content + "" + Quote.author}>
           <WhatsappIcon  size={40} round={true} style={{ backgroundColor: 'transparent',  }} />
         </WhatsappShareButton>
       </div>
