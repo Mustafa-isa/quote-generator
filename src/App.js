@@ -15,6 +15,7 @@ EmailIcon
 } from "react-share";
 
 const App = () => {
+  const curentPage = window.localStorage.herf
   const url = "https://api.quotable.io/random";
   let quoteData = {
     content: "Let time be your only competitor.",
@@ -57,16 +58,16 @@ const App = () => {
         </div>
       </div>
       <div className="shareContainer">
-        <FacebookShareButton url="https://timely-pie-f3118a.netlify.app/" quote={Quote.content + "" + Quote.author}>
+        <FacebookShareButton url={curentPage}quote={Quote.content + "" + Quote.author} >
           <FacebookIcon  size={40} round={true} style={{ backgroundColor: 'transparent',  }} />
         </FacebookShareButton>
-        <EmailShareButton  url="https://timely-pie-f3118a.netlify.app/" quote={Quote.content + "" + Quote.author}>
+        <EmailShareButton  url={curentPage}quote={Quote.content + "" + Quote.author}>
           <EmailIcon  size={40} round={true} style={{ backgroundColor: 'transparent',  }} />
         </EmailShareButton>
-        <TwitterShareButton  url="https://timely-pie-f3118a.netlify.app/"quote={Quote.content + "" + Quote.author}>
+        <TwitterShareButton  url={curentPage}quote={Quote.content + "" + Quote.author}>
           <TwitterIcon  size={40} round={true} style={{ backgroundColor: 'transparent',  }} />
         </TwitterShareButton>
-        <WhatsappShareButton  url="https://timely-pie-f3118a.netlify.app/"quote={Quote.content + "" + Quote.author}>
+        <WhatsappShareButton  url={curentPage}quote={Quote.content + "" + Quote.author}>
           <WhatsappIcon  size={40} round={true} style={{ backgroundColor: 'transparent',  }} />
         </WhatsappShareButton>
       </div>
